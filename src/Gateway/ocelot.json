@@ -47,7 +47,7 @@
     },
     {
       "UpstreamPathTemplate": "/users",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/v1/api/users",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -61,8 +61,26 @@
       }
     },
     {
+      "UpstreamPathTemplate": "/users",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/v1/api/users",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7294
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "ADMIN"
+      }
+    },
+    {
       "UpstreamPathTemplate": "/users/{id}",
-      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/v1/api/users/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -73,6 +91,24 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/users/{id}",
+      "UpstreamHttpMethod": [ "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/v1/api/users/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7294
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "ADMIN"
       }
     },
     {
@@ -107,7 +143,7 @@
     },
     {
       "UpstreamPathTemplate": "/currencies",
-      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/v1/api/currencies",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -118,6 +154,24 @@
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/currencies",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/v1/api/currencies",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7294
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "RouteClaimsRequirement": {
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role": "ADMIN"
       }
     },
     {
