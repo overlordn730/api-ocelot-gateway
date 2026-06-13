@@ -1,4 +1,4 @@
-using Gateway;
+using Gateway.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
@@ -58,7 +58,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Verificar lista negra de Redis
-app.UseMiddleware<TokenBlacklistMiddleware>();
+app.UseMiddleware<TokenValidationMiddleware>();
 
 // Agregar API Key antes de enrutar
 app.Use(async (context, next) =>
